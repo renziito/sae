@@ -2359,3 +2359,4 @@ Stack trace:
 REQUEST_URI=/sae/themes/admin/assets/plugins/multiselect/jquery.multi-select.js
 HTTP_REFERER=http://localhost/sae/kardex/default/update/id/2
 ---
+2019/08/04 19:56:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roberto_sae.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
