@@ -38,7 +38,7 @@ if (!$model->isNewRecord) {
         </div>
         <div class="col-lg-4 col-md-9">
             <?= $form->labelEx($model, 'monto'); ?>
-            <?= $form->numberField($model, 'monto', ['class' => 'form-control', 'required' => 'required']); ?>
+            <?= $form->numberField($model, 'monto', ['class' => 'form-control', 'required' => 'required', 'step' => 'any']); ?>
         </div>
     </div>
 
