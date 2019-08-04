@@ -1,0 +1,115 @@
+/* 
+    Created on : 26/04/2019, 12:44:37 PM
+    Author     : Renziito-PC
+*/
+
+#searchBP{position: fixed;display:none; z-index: 9; top: 90px; right: 0; width: 40%;}
+
+.frontxt{
+  width: 65%;
+  margin: 0 auto;
+  padding-top: 20px;
+  a{color: black;}
+}
+
+#mainBanner{
+  width: 100%;
+  z-index: 0;
+}
+.carousel-control {
+  i{
+    top: 40%;
+    position: absolute;
+    margin-top: 0 !important;
+  }
+}
+.carousel-caption{bottom:100px;text-align: inherit;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{
+  height:100vh;
+  .item {
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+  }
+}
+.banner-btn {
+  margin: 30px auto 0 auto;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #bf0411;
+  border-radius: 20px;
+  width: 190px;
+  padding: 20px !important;
+  a{
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 1.3rem;
+    padding: 0 !important;
+  }
+}
+
+.overlay:before{
+  position: absolute;
+  content:" ";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display: block;
+  z-index:0;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.news{
+  text-decoration: none !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-right:0;
+  padding-left:0;
+  @media (max-width: 767px) {
+    height: 200px !important;
+  }
+  div{
+    position: sticky; 
+    top:100%; 
+    padding:10px; 
+    color:white; 
+    background-color:black;
+    opacity: 0.5;
+    p{font-size:20px}
+  }
+  &.news-big{height: 400px;}
+  &.news-medium{height: 200px;}
+}
+
+/*-----SECCIÓN CATEGORÍAS-----*/
+#bluetile{
+  background-color:rgba(0,82,138,0.80);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  text-align:center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#categorias{
+  height: auto;
+}
+
+/*-----SECCIÓN REVOLUTION-----*/
+
+#revolutionwhite{
+  background-size:cover; 
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-top:-21px;
+  line-height: 1;
+}
+
+.thread{padding: 20px; color: black;}
+.user{color: #db7700;}
+.gray{color: #9a999e;}
+.black{color: black;}

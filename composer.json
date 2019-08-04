@@ -1,0 +1,14 @@
+{
+    "name": "renziito/sae",
+    "description": "Sistema de Administraci\u0000n del Edificio",
+    "type": "project",
+    "require": {
+        "yiisoft/yii": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "Renziito",
+            "email": "sepia.aki@gmail.com"
+        }
+    ]
+}
