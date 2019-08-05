@@ -24,10 +24,10 @@ class Menu {
                 'admin' => false,
             ],
             [
-                'name'  => 'Mis Deudas',
-                'link'  => Yii::app()->createurl('default'),
+                'name'  => 'Mis Cuentas',
+                'link'  => Yii::app()->createurl('default/cuentas'),
                 'icon'  => 'fas fa-coins',
-                'class' => self::isActive([null, ['default'], 'index']),
+                'class' => self::isActive([null, ['default'], 'cuentas']),
                 'admin' => false,
             ],
             [

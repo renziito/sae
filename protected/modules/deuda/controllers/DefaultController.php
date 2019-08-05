@@ -13,6 +13,27 @@ class DefaultController extends Controller {
         if ($post) {
             $model->attributes = $post;
             if ($model->save()) {
+                $file = CUploadedFile::getInstance($model, 'prueba');
+
+                if (trim($file) != "") {
+                    $data = Files::getNombreExtensionFile($file->name);
+                    $name = $model->id . '_' . date('dHis');
+                    $ext  = $data['extension'];
+
+                    $urlFile = Yii::getPathofAlias('webroot.files.deudas');
+                    $ruta    = $urlFile . "/" . $name . "." . $ext;
+                    Files::createDir($urlFile);
+                    if ($file->saveAs($ruta)) {
+                        $modelo         = $this->loadModel($model->id);
+                        $modelo->prueba = $name . "." . $ext;
+                        if (!$modelo->update()) {
+                            throw new Exception("No se puede guardar la foto [logicamente]");
+                        }
+                    } else {
+                        throw new Exception("No se puede guardar la foto [fisicamente]");
+                    }
+                }
+
                 $this->redirect(['index']);
             }
         }
@@ -30,14 +51,40 @@ class DefaultController extends Controller {
         $post  = Yii::app()->request->getPost('Deuda', false);
 
         if ($post) {
-            $this->redirect(['index']);
+            $file = CUploadedFile::getInstance($model, 'prueba');
+            if (trim($file) == "") {
+                $post['prueba'] = $model->prueba;
+            }
+            $model->attributes = $post;
+
+            if ($model->save()) {
+
+                if (trim($file) != "") {
+                    $data = Files::getNombreExtensionFile($file->name);
+                    $name = $model->id . '_' . date('dHis');
+                    $ext  = $data['extension'];
+
+                    $urlFile = Yii::getPathofAlias('webroot.files.deudas');
+                    $ruta    = $urlFile . "/" . $name . "." . $ext;
+                    Files::createDir($urlFile);
+                    if ($file->saveAs($ruta)) {
+                        $modelo         = $this->loadModel($model->id);
+                        $modelo->prueba = $name . "." . $ext;
+                        $modelo->update();
+                    }
+                }
+
+                $this->redirect(['index']);
+            }
         }
 
         $this->render('update', ['model' => $model]);
     }
 
-    public function actionDeudores($id) {
-        
+    public function actionView($id) {
+        $model    = $this->loadModel($id);
+        $personas = UsuarioDeuda::model()->findAll('estado = 1 AND deuda_id = ' . $id);
+        $this->render('view', compact('model', 'personas'));
     }
 
     /**

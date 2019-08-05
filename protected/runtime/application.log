@@ -2360,3 +2360,44 @@ REQUEST_URI=/sae/themes/admin/assets/plugins/multiselect/jquery.multi-select.js
 HTTP_REFERER=http://localhost/sae/kardex/default/update/id/2
 ---
 2019/08/04 19:56:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'roberto_sae.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2019/08/04 20:41:35 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "view" solicitada. in E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php:486
+Stack trace:
+#0 E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php(270): CController->missingAction('view')
+#1 E:\www\sae\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#2 E:\www\sae\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('deuda/default/v...')
+#3 E:\www\sae\vendor\yiisoft\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\www\sae\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/sae/deuda/default/view/id/1
+HTTP_REFERER=http://localhost/sae/deuda/default/index
+---
+2019/08/04 20:43:46 [error] [php] call_user_func_array() expects parameter 1 to be a valid callback, no array or string given (E:\www\sae\vendor\yiisoft\yii\framework\base\CComponent.php:624)
+Stack trace:
+#0 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridColumn.php(154): CDataColumn->renderDataCellContent()
+#1 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(639): CDataColumn->renderDataCell()
+#2 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(623): CGridView->renderDataCell()
+#3 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(579): CGridView->renderTableRow()
+#4 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\grid\CGridView.php(489): CGridView->renderTableBody()
+#5 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\CBaseListView.php(181): CGridView->renderItems()
+#6 unknown(0): CGridView->renderSection()
+#7 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#8 E:\www\sae\vendor\yiisoft\yii\framework\zii\widgets\CBaseListView.php(149): CGridView->renderContent()
+#9 E:\www\sae\vendor\yiisoft\yii\framework\web\CBaseController.php(182): CGridView->run()
+#10 E:\www\sae\protected\modules\deuda\views\default\index.php(18): DefaultController->widget()
+#11 E:\www\sae\vendor\yiisoft\yii\framework\web\CBaseController.php(126): require()
+#12 E:\www\sae\vendor\yiisoft\yii\framework\web\CBaseController.php(95): DefaultController->renderInternal()
+#13 E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php(872): DefaultController->renderFile()
+#14 E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php(785): DefaultController->renderPartial()
+#15 E:\www\sae\protected\modules\deuda\controllers\DefaultController.php(113): DefaultController->render()
+#16 E:\www\sae\vendor\yiisoft\yii\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#17 E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php(286): DefaultController->runAction()
+#19 E:\www\sae\vendor\yiisoft\yii\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#20 E:\www\sae\vendor\yiisoft\yii\framework\web\CWebApplication.php(282): DefaultController->run()
+#21 E:\www\sae\vendor\yiisoft\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 E:\www\sae\vendor\yiisoft\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\www\sae\index.php(15): CWebApplication->run()
+REQUEST_URI=/sae/deuda/default/index
+in E:\www\sae\protected\modules\deuda\views\default\index.php (18)
+in E:\www\sae\protected\modules\deuda\controllers\DefaultController.php (113)
+in E:\www\sae\index.php (15)

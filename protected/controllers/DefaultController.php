@@ -11,6 +11,11 @@ class DefaultController extends Controller {
         $this->render('anuncios', compact('anuncios'));
     }
 
+    public function actionCuentas() {
+        $anuncios = Anuncio::model()->findAll('estado = 1 ORDER BY fecha DESC');
+        $this->render('anuncios', compact('anuncios'));
+    }
+
     public function actionPerfil() {
         $id    = Yii::app()->request->getQuery('iden', Yii::app()->user->id);
         $user  = Usuario::model()->findbyPk($id);

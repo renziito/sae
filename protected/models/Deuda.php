@@ -8,6 +8,8 @@
  * @property string $denominacion
  * @property string $monto
  * @property string $fecha_vencimiento
+ * @property integer $tipo
+ * @property string $prueba
  * @property string $fecha
  * @property integer $estado
  */
@@ -30,13 +32,13 @@ class Deuda extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('denominacion, monto, fecha_vencimiento', 'required', 'message' => '{attribute} no debe estar vacio.'),
-			array('estado', 'numerical', 'integerOnly'=>true,'message' => '{attribute} solo debe ser numeros.'),
-			array('denominacion', 'length', 'max'=>255),
+			array('tipo, estado', 'numerical', 'integerOnly'=>true,'message' => '{attribute} solo debe ser numeros.'),
+			array('denominacion, prueba', 'length', 'max'=>255),
 			array('monto', 'length', 'max'=>10),
 			array('fecha', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, denominacion, monto, fecha_vencimiento, fecha, estado', 'safe', 'on'=>'search'),
+			array('id, denominacion, monto, fecha_vencimiento, tipo, prueba, fecha, estado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +63,8 @@ class Deuda extends CActiveRecord
 			'denominacion' => 'Denominacion',
 			'monto' => 'Monto',
 			'fecha_vencimiento' => 'Fecha Vencimiento',
+			'tipo' => 'Tipo',
+			'prueba' => 'Prueba',
 			'fecha' => 'Fecha',
 			'estado' => 'Estado',
 		);
@@ -90,6 +94,8 @@ class Deuda extends CActiveRecord
 		$criteria->compare('fecha_vencimiento',$this->fecha_vencimiento,true);
 
 		$criteria->order = 'fecha_vencimiento DESC';
+		$criteria->compare('tipo',$this->tipo);
+		$criteria->compare('prueba',$this->prueba,true);
 		$criteria->compare('fecha',$this->fecha,true);
 
 		$criteria->order = 'fecha DESC';
