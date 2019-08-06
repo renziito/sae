@@ -23,7 +23,7 @@ $this->breadcrumbs = array(
             'numero',
             [
                 'class'              => 'CButtonColumn',
-                'template'           => '{update}{delete}',
+                'template'           => '{update}{view}{delete}',
                 'deleteConfirmation' => "js:'Se va a eliminar el evento : '+$(this).parent().parent().children(':nth-child(2)').text()+'?'",
             ],
         ],
