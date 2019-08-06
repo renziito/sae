@@ -84,6 +84,13 @@ class DefaultController extends Controller {
     public function actionView($id) {
         $model    = $this->loadModel($id);
         $personas = UsuarioDeuda::model()->findAll('estado = 1 AND deuda_id = ' . $id);
+
+        $post = Yii::app()->request->getPost('Deuda', false);
+        if ($post) {
+            foreach ($post['personas'] as $deudor) {
+                
+            }
+        }
         $this->render('view', compact('model', 'personas'));
     }
 

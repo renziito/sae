@@ -8,6 +8,8 @@
  * @property integer $departamento_id
  * @property integer $usuario_id
  * @property integer $tipo
+ * @property string $desde
+ * @property string $hasta
  * @property integer $personas
  * @property integer $mascotas
  * @property integer $estado
@@ -32,9 +34,10 @@ class UsuarioDepartamento extends CActiveRecord
 		return array(
 			array('departamento_id, usuario_id, tipo, personas, mascotas', 'required', 'message' => '{attribute} no debe estar vacio.'),
 			array('departamento_id, usuario_id, tipo, personas, mascotas, estado', 'numerical', 'integerOnly'=>true,'message' => '{attribute} solo debe ser numeros.'),
+			array('desde, hasta', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, departamento_id, usuario_id, tipo, personas, mascotas, estado', 'safe', 'on'=>'search'),
+			array('id, departamento_id, usuario_id, tipo, desde, hasta, personas, mascotas, estado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +62,8 @@ class UsuarioDepartamento extends CActiveRecord
 			'departamento_id' => 'Departamento',
 			'usuario_id' => 'Usuario',
 			'tipo' => 'Tipo',
+			'desde' => 'Desde',
+			'hasta' => 'Hasta',
 			'personas' => 'Personas',
 			'mascotas' => 'Mascotas',
 			'estado' => 'Estado',
@@ -87,6 +92,8 @@ class UsuarioDepartamento extends CActiveRecord
 		$criteria->compare('departamento_id',$this->departamento_id);
 		$criteria->compare('usuario_id',$this->usuario_id);
 		$criteria->compare('tipo',$this->tipo);
+		$criteria->compare('desde',$this->desde,true);
+		$criteria->compare('hasta',$this->hasta,true);
 		$criteria->compare('personas',$this->personas);
 		$criteria->compare('mascotas',$this->mascotas);
 		$criteria->compare('estado',$this->estado);
