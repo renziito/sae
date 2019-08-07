@@ -12,8 +12,8 @@ class DefaultController extends Controller {
     }
 
     public function actionCuentas() {
-        $anuncios = Anuncio::model()->findAll('estado = 1 ORDER BY fecha DESC');
-        $this->render('anuncios', compact('anuncios'));
+        $deudas = UsuarioDeuda::model()->findAll('estado = 1 AND usuario_id = ' . Yii::app()->user->id);
+        $this->render('cuentas', compact('deudas'));
     }
 
     public function actionPerfil() {

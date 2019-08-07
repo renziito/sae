@@ -30,9 +30,9 @@ class UsuarioDeuda extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('deuda_id, usuario_id, fecha_pago', 'required', 'message' => '{attribute} no debe estar vacio.'),
+			array('deuda_id, usuario_id', 'required', 'message' => '{attribute} no debe estar vacio.'),
 			array('deuda_id, usuario_id, pagado, estado', 'numerical', 'integerOnly'=>true,'message' => '{attribute} solo debe ser numeros.'),
-			array('fecha', 'safe'),
+			array('fecha_pago, fecha', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, deuda_id, usuario_id, pagado, fecha_pago, fecha, estado', 'safe', 'on'=>'search'),
