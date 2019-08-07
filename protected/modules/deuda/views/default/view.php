@@ -7,7 +7,8 @@ $this->breadcrumbs = array(
     'Personas',
 );
 
-$id = Yii::app()->request->getQuery('id');
+$id       = Yii::app()->request->getQuery('id');
+$personas = QPersonas::getPersonas(false, false);
 ?>
 
 <div class="card card-transparent m-t-30">
@@ -33,14 +34,13 @@ $id = Yii::app()->request->getQuery('id');
                 <form method="POST">
                     <input type="hidden" name="Deuda[id]" value="<?= $id ?>"/>
                     <select multiple="multiple" class="searchable" id="select-personas" name="Deuda[personas][]">
-                        <option value='elem_1'>elem 1</option>
-                        <option value='elem_2'>elem 2</option>
-                        <option value='elem_3'>elem 3</option>
-                        <option value='elem_4'>elem 4</option>
-                        <option value='elem_100'>elem 100</option>
+                        <?php foreach ($personas as $persona): ?>
+                            <option value='<?= $persona['id'] ?>'
+                                <?= (QPersonas::hadDeuda($id, $persona['id']) ? 'selected' : '') ?>>
+                                <?= $persona['nombre_completo'] ?>
+                            </option>
+                        <?php endforeach; ?>
                     </select>
-                    <?php foreach ($personas as $persona): ?>
-                    <?php endforeach; ?>
                     <button type="Submit" class="btn btn-success m-t-30">Guardar</button>
                 </form>
             </div>

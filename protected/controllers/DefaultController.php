@@ -24,7 +24,7 @@ class DefaultController extends Controller {
     if ($post) {
       if (password_verify($post['contrasena'], $user->password)) {
         $user->attributes = $post;
-        if($post['fecha_nacimiento']==""){
+        if ($post['fecha_nacimiento'] == "") {
           $user->fecha_nacimiento = null;
         }
         if (isset($post['nclave']) && $post['nclave'] != "") {

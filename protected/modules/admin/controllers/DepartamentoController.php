@@ -82,8 +82,26 @@ class DepartamentoController extends Controller {
     }
 
     public function actionView($id) {
-        $actual = UsuarioDepartamento::model()->find('estado = 1 AND departamento_id = ' . $id);
-        $pasado = UsuarioDepartamento::model()->findAll('estado = 0 AND departamento_id = ' . $id);
+        $post   = Yii::app()->request->getPost('UsuarioDepartamento', false);
+        $actual = UsuarioDepartamento::model()->find(
+                'estado = 1 AND (hasta >="' . date('Y-m-d') . '"   
+                OR hasta = "0000-00-00")
+                AND departamento_id = ' . $id);
+
+        if ($post) {
+            if (!$actual) {
+                $actual = new UsuarioDepartamento();
+            }
+
+            $actual->attributes = $post;
+            $actual->save();
+        }
+
+        $pasado = UsuarioDepartamento::model()->findAll(
+                'estado = 1 AND (hasta <"' . date('Y-m-d') . '"   
+                AND hasta != "0000-00-00")
+                AND departamento_id = ' . $id);
+
         $this->render('view', compact('actual', 'pasado'));
     }
 
